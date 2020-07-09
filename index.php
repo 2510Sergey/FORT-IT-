@@ -1,12 +1,12 @@
 <?php
-ini_set('session.save_path', ".\session");
+ini_set('session.save_path', "");
 // Подключение файла сессии
 session_start();
 // Запись в сессионную переменную
-$_SESSION['name'] = 'Vasia';
-
+// $_SESSION['name'] = 'Vasia';
+echo session_id();
 // Чтение из сессионной переменной
-echo $_SESSION['name'];
+// echo $_SESSION['name'];
 ?> <!--Сессия -->
 
 <!--HTML -->
@@ -46,9 +46,6 @@ echo $_SESSION['name'];
 		<input class="form-control form-control-sm" type="text" name="description" placeholder="Описание товара"/><br/>
 	</div>
 
-	<div id="availability" class="form-group form-control-sm row col-6">
-		<input class="form-control form-control-sm" type="text" name="availability" placeholder="Количество товара в наличии"/><br/>
-	</div>
 
 	<div id="price" class="form-group form-control-sm row col-6">
 		<input class="form-control form-control-sm" type="text" name="price" placeholder="Цена товара"/><br/>
@@ -66,37 +63,32 @@ let select = document.getElementById('select');
 
 select.addEventListener('change', function() {
   if (select.value == 'delete') {
-    document.getElementById('article','description').style.display = "None";
+    document.getElementById('article').style.display = "None";
 	  document.getElementById('description').style.display = "None";
-	  document.getElementById('availability').style.display = "None";
 	  document.getElementById('price').style.display = "None";
-
 	  document.getElementById('submit').style.display = "block";
 	}
   else if (select.value == 'insert') {
+  	document.getElementById('name').style.display = "block";
     document.getElementById('article').style.display = "block";
 	  document.getElementById('description').style.display = "block";
-	  document.getElementById('availability').style.display = "block";
 	  document.getElementById('price').style.display = "block";
-
 	  document.getElementById('submit').style.display = "block";
 	}
   else if (select.value == 'get_all') {
     document.getElementById('name').style.display = "None";
     document.getElementById('article').style.display = "None";
 	  document.getElementById('description').style.display = "None";
-	  document.getElementById('availability').style.display = "None";
 	  document.getElementById('price').style.display = "None";
-
 	}
   else if (select.value == 'get_where') {
     document.getElementById('name').style.display = "block";
     document.getElementById('article').style.display = "None";
 	  document.getElementById('description').style.display = "None";
-	  document.getElementById('availability').style.display = "None";
 	  document.getElementById('price').style.display = "None";
 	  document.getElementById('submit').style.display = "block";
 	}
+
 });
 
 </script> <!--СКРИПТ СМЕНЫ ПОЛЕЙ ФОРМЫ В ЗАВИСИМОСТИ ОТ ВЫБРАННЫХ ОПЦИЙ -->
